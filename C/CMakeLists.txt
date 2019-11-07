@@ -2,12 +2,13 @@ cmake_minimum_required(VERSION 3.6.0)
 
 project(C)
 
-add_library(C SHARED C.h C.cpp)
+add_library(C STATIC C.h C.cpp)
 
 target_link_libraries(C PRIVATE B)
 
-get_target_property(OUT C LINK_LIBRARIES)
-message(STATUS ${OUT})
+add_custom_command(TARGET C POST_BUILD COMMAND echo "$<TARGET_FILE:C>")
+
+# $<TARGET_FILE:B>
 
 # CMAKE_XCODE_USE_LINKING_PHASE
 
