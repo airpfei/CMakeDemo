@@ -9,4 +9,4 @@ target_include_directories(B PUBLIC
   $<INSTALL_INTERFACE:include/mylibB>  # <prefix>/include/mylib
 )
 
-target_link_libraries(B PUBLIC A)
+target_link_libraries(B PRIVATE A)
